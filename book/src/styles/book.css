@@ -1,0 +1,147 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .search-input {
+    width: 96%;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .book {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .book-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    
+  }
+  
+  .book-card h3 {
+    margin-bottom: 0.5rem;
+    color: #1e88e5;
+  }
+  
+  .book-card p {
+    margin: 0.25rem 0;
+    color: #555;
+  }
+  
+  .review-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .review-form input,
+  .review-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .review-form button {
+    padding: 0.5rem 1rem;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+  
+  .review-form button:hover {
+    background-color: #1565c0;
+  }
+  
+  .book-card button {
+    margin: 0.3rem 0.3rem 0 0;
+    padding: 0.4rem 0.7rem;
+    background-color: #43a047;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .book-card button:nth-child(2) {
+    background-color: #e53935;
+  }
+  
+  .book-card button:hover {
+    opacity: 0.9;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .pagination button {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ccc;
+    background-color: black;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .pagination .active {
+    background-color: #1e88e5;
+    color: white;
+    border: 1px solid #1e88e5;
+  }
+  
+  .toggle-add-btn,
+  .logout-btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    width: 100%;
+    background-color: #3949ab;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .toggle-add-btn:hover,
+  .logout-btn:hover {
+    background-color: #303f9f;
+  }
+  
+  ol {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
