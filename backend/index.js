@@ -24,6 +24,10 @@ app.use(morgan('dev'));
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
 
 // 🌐 MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
