@@ -1,9 +1,8 @@
-
-
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
-import '../styles/AddBook.css'
+import Toast from './Toast'; 
+import '../styles/AddBook.css';
 
 function AddBook({ onBookAdded }) {
   const { token } = useContext(AuthContext);
@@ -14,7 +13,13 @@ function AddBook({ onBookAdded }) {
     description: '',
   });
 
+  const [toastMessage, setToastMessage] = useState('');
   const api = process.env.REACT_APP_API_URL;
+
+  const showToast = (msg) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(''), 3000);
+  };
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -25,45 +30,48 @@ function AddBook({ onBookAdded }) {
       await axios.post(`${api}/books`, form, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      alert('Book added successfully');
+      showToast('✅ Book added successfully');
       setForm({ title: '', author: '', genre: '', description: '' });
       onBookAdded();
     } catch (err) {
-      alert(err.response?.data?.message || 'Failed to add book');
+      showToast(err.response?.data?.message || '❌ Failed to add book');
     }
   };
 
   return (
-    <form className="add-book-form" onSubmit={handleSubmit}>
-      <h2>Add Book</h2>
-      <input
-        name="title"
-        placeholder="Title"
-        value={form.title}
-        onChange={handleChange}
-        required
-      />
-      <input
-        name="author"
-        placeholder="Author"
-        value={form.author}
-        onChange={handleChange}
-        required
-      />
-      <input
-        name="genre"
-        placeholder="Genre"
-        value={form.genre}
-        onChange={handleChange}
-      />
-      <textarea
-        name="description"
-        placeholder="Description"
-        value={form.description}
-        onChange={handleChange}
-      />
-      <button type="submit">Add Book</button>
-    </form>
+    <>
+      <Toast message={toastMessage} />
+      <form className="add-book-form" onSubmit={handleSubmit}>
+        <h2>Add Book</h2>
+        <input
+          name="title"
+          placeholder="Title"
+          value={form.title}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="author"
+          placeholder="Author"
+          value={form.author}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="genre"
+          placeholder="Genre"
+          value={form.genre}
+          onChange={handleChange}
+        />
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={form.description}
+          onChange={handleChange}
+        />
+        <button type="submit">Add Book</button>
+      </form>
+    </>
   );
 }
 
